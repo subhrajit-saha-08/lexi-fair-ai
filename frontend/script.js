@@ -1,15 +1,16 @@
 /* ═══════════════════════════════════════════════════════════
    LEXI-FAIR AI — script.js
-   Phase 2: Client-Side Data Ingestion
+   Phase 4: Client-Server Handshake
    ─────────────────────────────────────────────────────────
    Responsibilities:
      • Handle file selection via <input type="file">
      • Handle drag-and-drop onto the drop zone
      • Parse the .csv file with PapaParse
-     • Expose parsed data (rows + headers) to the console
+     • Read the Target Variable dropdown value
+     • POST parsed data to Flask /api/v1/analyze
+     • Log backend response to console (no DOM rendering)
    ─────────────────────────────────────────────────────────
-   NOTE: No fetch(), no DOM table rendering, no backend calls.
-         All output is strictly to the developer console.
+   NOTE: API response is console-only. No UI updates.
 ════════════════════════════════════════════════════════════ */
 
 'use strict';
@@ -25,11 +26,12 @@ let parsedData = null;
 let parsedHeaders = null;
 
 /* ─── DOM References ─────────────────────────────────────── */
-const dropzone   = document.getElementById('dropzone');
-const fileInput  = document.getElementById('file-input');
-const browseLink = document.getElementById('browse-link');
-const fileLabel  = document.getElementById('file-label');
-const scanBtn    = document.getElementById('scan-btn');
+const dropzone              = document.getElementById('dropzone');
+const fileInput             = document.getElementById('file-input');
+const browseLink            = document.getElementById('browse-link');
+const fileLabel             = document.getElementById('file-label');
+const scanBtn               = document.getElementById('scan-btn');
+const targetVariableDropdown = document.getElementById('target-variable-dropdown');
 
 /* ══════════════════════════════════════════════════════════
    1. UTILITY — validate that a given File is a CSV
@@ -116,7 +118,7 @@ function parseCSV(file) {
       parsedData    = dataArray;
       parsedHeaders = headers;
 
-      /* ── Mandatory Phase 2 console output ── */
+      /* ── Parse output ── */
       console.log('Parsed JSON Array:', dataArray);
       console.log('Extracted Headers:', headers);
 
@@ -128,6 +130,11 @@ function parseCSV(file) {
       }
 
       console.groupEnd();
+
+      /* ══════════════════════════════════════════════════════
+         Phase 4 — POST to Flask API
+      ══════════════════════════════════════════════════════ */
+      sendToAPI(dataArray);
     },
 
     /**
@@ -207,10 +214,61 @@ if (scanBtn) {
 }
 
 /* ══════════════════════════════════════════════════════════
-   5. INITIALISATION LOG
+   5. PHASE 4 — API CALL
+══════════════════════════════════════════════════════════ */
+
+const API_URL = 'http://localhost:5000/api/v1/analyze';
+
+/**
+ * Reads the Target Variable dropdown, builds the request payload,
+ * POSTs it to the Flask backend, and logs the response.
+ * No DOM manipulation is performed here.
+ * @param {Object[]} dataArray - The parsed CSV rows from PapaParse
+ */
+async function sendToAPI(dataArray) {
+  /* ── Step 1: Read the selected target variable ── */
+  const targetVariable = targetVariableDropdown ? targetVariableDropdown.value : '';
+
+  /* ── Step 2: Structure the payload ── */
+  const payload = {
+    data: dataArray,
+    target_variable: targetVariable
+  };
+
+  console.group('[Lexi-Fair AI] 🚀  Sending payload to Flask API');
+  console.log('  ↳ Endpoint      :', API_URL);
+  console.log('  ↳ target_variable:', targetVariable);
+  console.log('  ↳ data rows     :', dataArray.length);
+
+  /* ── Step 3: fetch() POST ── */
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const json = await response.json();
+
+    /* ── Mandatory Phase 4 log ── */
+    console.log('Backend API Response:', json);
+    console.groupEnd();
+
+  } catch (error) {
+    /* ── Step 4: Network / parse error handling ── */
+    console.error('[Lexi-Fair AI] ❌  API call failed:', error);
+    console.groupEnd();
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   6. INITIALISATION LOG
 ══════════════════════════════════════════════════════════ */
 console.info(
-  '%c⚖️  Lexi-Fair AI — Phase 2 Loaded',
+  '%c⚖️  Lexi-Fair AI — Phase 4 Loaded',
   'color:#4f7ef8; font-weight:700; font-size:13px;'
 );
 console.info('PapaParse version:', typeof Papa !== 'undefined' ? Papa.PAPA_VERSION : '⚠️  NOT LOADED');
+console.info('API endpoint     :', API_URL);
