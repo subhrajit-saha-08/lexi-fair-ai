@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lexi-Fair AI – Enterprise AI bias detection and fairness analysis platform." />
+    <title>Lexi-Fair AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ═══════════════════════════════════════════════════
+         HEADER
+    ════════════════════════════════════════════════════ -->
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+
+        <div class="brand">
+          <span class="brand-icon">⚖️</span>
+          <div class="brand-text">
+            <span class="brand-name">Lexi-Fair AI</span>
+            <span class="brand-tagline">Bias Detection Platform</span>
+          </div>
+        </div>
+
+        <nav class="header-nav" id="header-nav">
+          <span class="nav-badge">v1.0 Beta</span>
+
+          <div class="lang-selector">
+            <select id="language-dropdown" class="lang-dropdown" aria-label="Select language">
+              <option value="en">🌐 English</option>
+              <option value="hi">🌐 हिन्दी</option>
+              <option value="es">🌐 Español</option>
+              <option value="fr">🌐 Français</option>
+            </select>
+          </div>
+
+          <div class="header-status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-text">System Ready</span>
+          </div>
+        </nav>
+
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════
+         APP LAYOUT
+    ════════════════════════════════════════════════════ -->
+    <div class="app-layout">
+
+      <!-- ─── SIDEBAR / CONTROL PANEL ─── -->
+      <aside class="control-panel" id="control-panel">
+
+        <!-- Target Variable -->
+        <section class="panel-section" id="target-variable-section">
+          <div class="section-label">
+            <span class="section-icon">🎯</span>
+            <span>Target Variable</span>
+          </div>
+          <p class="section-desc">Define the AI model's predictive goal</p>
+          <div class="select-wrapper">
+            <select id="target-variable-dropdown" class="target-dropdown" aria-label="Select target variable">
+              <option value="" disabled selected>Select target variable…</option>
+              <option value="loan-approval">Loan Approval</option>
+              <option value="tech-hiring">Tech Hiring</option>
+              <option value="default-outcome">Default Outcome</option>
+              <option value="credit-score">Credit Score</option>
+              <option value="recidivism">Recidivism Risk</option>
+            </select>
+            <span class="select-arrow" aria-hidden="true">▾</span>
+          </div>
+        </section>
+
+        <div class="panel-divider"></div>
+
+        <!-- Trap Datasets -->
+        <section class="panel-section" id="trap-datasets-section">
+          <div class="section-label">
+            <span class="section-icon">🗂️</span>
+            <span>Quick Test Datasets</span>
+          </div>
+          <p class="section-desc">Select a preset dataset to test bias detection</p>
+
+          <div class="dataset-cards" id="dataset-cards">
+
+            <!-- Card 1: Banking -->
+            <div class="dataset-card card-banking" id="card-banking"
+                 role="button" tabindex="0" aria-label="Select Banking Dataset">
+              <div class="card-header">
+                <span class="card-icon">🏦</span>
+                <span class="card-badge badge-risk">High Bias Risk</span>
+              </div>
+              <h3 class="card-title">Banking Dataset</h3>
+              <p class="card-desc">Historical loan approval records with socioeconomic attributes</p>
+              <div class="card-meta">
+                <span class="meta-item">📊 15K rows</span>
+                <span class="meta-item">🔴 Known Bias</span>
+              </div>
+              <span class="card-cta">Click to Select →</span>
+            </div>
+
+            <!-- Card 2: Tech Hiring -->
+            <div class="dataset-card card-tech" id="card-tech"
+                 role="button" tabindex="0" aria-label="Select Tech Hiring Dataset">
+              <div class="card-header">
+                <span class="card-icon">💼</span>
+                <span class="card-badge badge-medium">Medium Risk</span>
+              </div>
+              <h3 class="card-title">Tech Hiring Dataset</h3>
+              <p class="card-desc">Resume screening and interview outcome data from tech firms</p>
+              <div class="card-meta">
+                <span class="meta-item">📊 8.2K rows</span>
+                <span class="meta-item">🟡 Possible Bias</span>
+              </div>
+              <span class="card-cta">Click to Select →</span>
+            </div>
+
+            <!-- Card 3: Safe -->
+            <div class="dataset-card card-safe" id="card-safe"
+                 role="button" tabindex="0" aria-label="Select Safe Dataset">
+              <div class="card-header">
+                <span class="card-icon">✅</span>
+                <span class="card-badge badge-safe">Low Risk</span>
+              </div>
+              <h3 class="card-title">Safe Dataset</h3>
+              <p class="card-desc">Synthetically balanced dataset — verify fair model outputs</p>
+              <div class="card-meta">
+                <span class="meta-item">📊 5K rows</span>
+                <span class="meta-item">🟢 Balanced</span>
+              </div>
+              <span class="card-cta">Click to Select →</span>
+            </div>
+
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- ─── MAIN CONTENT ─── -->
+      <main class="main-content" id="main-content">
+
+        <!-- Upload Zone -->
+        <section class="upload-section" id="upload-section">
+          <div class="section-heading">
+            <h2 class="section-title">Dataset Upload</h2>
+            <span class="section-subtitle">Upload a CSV file for AI bias analysis</span>
+          </div>
+
+          <div class="dropzone" id="dropzone" role="region" aria-label="File upload drop zone">
+            <div class="dropzone-inner">
+              <div class="dropzone-icon">📂</div>
+              <p class="dropzone-title">Drag &amp; Drop your CSV file here</p>
+              <p class="dropzone-hint">or <span class="browse-link" id="browse-link">browse to upload</span></p>
+              <div class="dropzone-constraints">
+                <span class="constraint-tag">CSV only</span>
+                <span class="constraint-tag">Max 50 MB</span>
+                <span class="constraint-tag">UTF-8 encoded</span>
+              </div>
+            </div>
+            <input type="file" id="file-input" class="file-input-hidden" accept=".csv" aria-label="Upload CSV file" />
+          </div>
+
+          <div class="upload-actions">
+            <span class="no-file-text" id="file-label">No file selected</span>
+            <button id="scan-btn" class="btn-scan" type="button" disabled>
+              <span class="btn-icon">⚡</span>
+              <span>Scan Dataset</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Results Dashboard -->
+        <section class="results-section" id="results-section">
+          <div class="section-heading">
+            <h2 class="section-title">Results Dashboard</h2>
+            <div class="results-status" id="results-status">
+              <span class="status-dot-sm" aria-hidden="true"></span>
+              <span>Awaiting scan…</span>
+            </div>
+          </div>
+
+          <!-- Stat Cards -->
+          <div class="stats-row" id="stats-row">
+            <div class="stat-card" id="stat-rows">
+              <span class="stat-value">—</span>
+              <span class="stat-label">Total Rows</span>
+            </div>
+            <div class="stat-card" id="stat-cols">
+              <span class="stat-value">—</span>
+              <span class="stat-label">Columns</span>
+            </div>
+            <div class="stat-card" id="stat-bias">
+              <span class="stat-value">—</span>
+              <span class="stat-label">Bias Score</span>
+            </div>
+            <div class="stat-card" id="stat-flags">
+              <span class="stat-value">—</span>
+              <span class="stat-label">Flags Raised</span>
+            </div>
+          </div>
+
+          <!-- Table / Empty State -->
+          <div class="table-wrapper" id="table-wrapper">
+            <div class="table-empty-state" id="table-empty-state">
+              <div class="empty-icon">🔬</div>
+              <p class="empty-title">No data scanned yet</p>
+              <p class="empty-desc">Upload a dataset and click "Scan Dataset" to begin analysis</p>
+            </div>
+
+            <table class="results-table" id="results-table" aria-label="Dataset scan results" hidden>
+              <thead id="table-head">
+                <tr><!-- Column headers injected by script.js in Phase 3+ --></tr>
+              </thead>
+              <tbody id="table-body">
+                <!-- Data rows injected by script.js in Phase 3+ -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════════════ -->
+    <footer class="site-footer" id="site-footer">
+      <span>Lexi-Fair AI &copy; 2025</span>
+      <span class="footer-sep">|</span>
+      <span>Built for Responsible AI</span>
+    </footer>
+
+    <!-- PapaParse — CSV parsing library (Phase 2) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
