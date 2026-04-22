@@ -1,312 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Lexi-Fair AI – Enterprise AI bias detection and fairness analysis platform." />
-    <title>Lexi-Fair AI</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexi-feir | Next-Gen AI Bias Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <!-- ═══════════════════════════════════════════════════
-         HEADER
-    ════════════════════════════════════════════════════ -->
-    <header class="site-header" id="site-header">
-      <div class="header-inner">
+    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <linearGradient id="icon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3b82f6" />
+            <stop offset="50%" stop-color="#c084fc" />
+            <stop offset="100%" stop-color="#ec4899" />
+        </linearGradient>
+    </svg>
 
-        <div class="brand">
-          <span class="brand-icon">⚖️</span>
-          <div class="brand-text">
-            <span class="brand-name">Lexi-Fair AI</span>
-            <span class="brand-tagline">Bias Detection Platform</span>
-          </div>
-        </div>
-
-        <nav class="header-nav" id="header-nav">
-          <span class="nav-badge">v1.0 Beta</span>
-
-          <div class="header-status">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span class="status-text">System Ready</span>
-          </div>
-        </nav>
-
-      </div>
-    </header>
-
-    <!-- ═══════════════════════════════════════════════════
-         APP LAYOUT
-    ════════════════════════════════════════════════════ -->
-    <div class="app-layout">
-
-      <!-- ─── SIDEBAR / CONTROL PANEL ─── -->
-      <aside class="control-panel" id="control-panel">
-
-        <!-- Step 1 Indicator -->
-        <div class="step-indicator step-indicator--active" id="step-1-indicator">
-          <span class="step-number">1</span>
-          <span class="step-label">Setup Parameters</span>
-        </div>
-
-        <!-- Target Variable -->
-        <section class="panel-section" id="target-variable-section">
-          <div class="section-label">
-            <span class="section-icon">🎯</span>
-            <span>Target Variable</span>
-          </div>
-          <p class="section-desc">Define the AI model's predictive goal</p>
-          <div class="select-wrapper">
-            <select id="target-variable-dropdown" class="target-dropdown" aria-label="Select target variable">
-              <option value="" disabled selected>Select target variable…</option>
-              <option value="loan-approval">Loan Approval</option>
-              <option value="tech-hiring">Tech Hiring</option>
-              <option value="default-outcome">Default Outcome</option>
-              <option value="credit-score">Credit Score</option>
-              <option value="recidivism">Recidivism Risk</option>
-            </select>
-            <span class="select-arrow" aria-hidden="true">▾</span>
-          </div>
-        </section>
-
-        <!-- AI Analysis Language -->
-        <section class="panel-section" id="language-section" style="margin-top:4px;">
-          <label class="section-label" for="language-dropdown">
-            <span class="section-icon">🌐</span>
-            <span>AI Analysis Language</span>
-          </label>
-          <p class="section-desc">Language for AI-generated bias explanations</p>
-          <div class="select-wrapper">
-            <select id="language-dropdown" class="target-dropdown" aria-label="Select analysis language">
-              <option value="en">English</option>
-              <option value="hi">हिन्दी (Hindi)</option>
-              <option value="es">Español (Spanish)</option>
-              <option value="fr">Français (French)</option>
-            </select>
-            <span class="select-arrow" aria-hidden="true">▾</span>
-          </div>
-        </section>
-
-        <div class="panel-divider"></div>
-
-        <!-- Trap Datasets -->
-        <section class="panel-section" id="trap-datasets-section">
-          <div class="section-label">
-            <span class="section-icon">🗂️</span>
-            <span>Quick Test Datasets</span>
-          </div>
-          <p class="section-desc">Select a preset dataset to test bias detection</p>
-
-          <div class="dataset-cards" id="dataset-cards">
-
-            <!-- Card 1: Banking -->
-            <div class="dataset-card card-banking" id="card-banking"
-                 role="button" tabindex="0" aria-label="Select Banking Dataset">
-              <div class="card-header">
-                <span class="card-icon">🏦</span>
-                <span class="card-badge badge-risk">High Bias Risk</span>
-              </div>
-              <h3 class="card-title">Banking Dataset</h3>
-              <p class="card-desc">Historical loan approval records with socioeconomic attributes</p>
-              <div class="card-meta">
-                <span class="meta-item">📊 15K rows</span>
-                <span class="meta-item">🔴 Known Bias</span>
-              </div>
-              <span class="card-cta">Click to Select →</span>
-            </div>
-
-            <!-- Card 2: Tech Hiring -->
-            <div class="dataset-card card-tech" id="card-tech"
-                 role="button" tabindex="0" aria-label="Select Tech Hiring Dataset">
-              <div class="card-header">
-                <span class="card-icon">💼</span>
-                <span class="card-badge badge-medium">Medium Risk</span>
-              </div>
-              <h3 class="card-title">Tech Hiring Dataset</h3>
-              <p class="card-desc">Resume screening and interview outcome data from tech firms</p>
-              <div class="card-meta">
-                <span class="meta-item">📊 8.2K rows</span>
-                <span class="meta-item">🟡 Possible Bias</span>
-              </div>
-              <span class="card-cta">Click to Select →</span>
-            </div>
-
-            <!-- Card 3: Safe -->
-            <div class="dataset-card card-safe" id="card-safe"
-                 role="button" tabindex="0" aria-label="Select Safe Dataset">
-              <div class="card-header">
-                <span class="card-icon">✅</span>
-                <span class="card-badge badge-safe">Low Risk</span>
-              </div>
-              <h3 class="card-title">Safe Dataset</h3>
-              <p class="card-desc">Synthetically balanced dataset — verify fair model outputs</p>
-              <div class="card-meta">
-                <span class="meta-item">📊 5K rows</span>
-                <span class="meta-item">🟢 Balanced</span>
-              </div>
-              <span class="card-cta">Click to Select →</span>
-            </div>
-
-          </div>
-        </section>
-
-      </aside>
-
-      <!-- ─── MAIN CONTENT ─── -->
-      <main class="main-content" id="main-content">
-
-        <!-- Step 2: Upload Zone -->
-        <section class="upload-section" id="upload-section">
-          <div class="section-heading">
-            <!-- Step 2 Indicator -->
-            <div class="step-indicator" id="step-2-indicator">
-              <span class="step-number">2</span>
-              <span class="step-label">Ingest Data</span>
-            </div>
-            <h2 class="section-title">Dataset Upload</h2>
-            <span class="section-subtitle">Upload a CSV file for AI bias analysis</span>
-          </div>
-
-          <div class="dropzone" id="dropzone" role="region" aria-label="File upload drop zone">
-            <div class="dropzone-inner">
-              <div class="dropzone-icon">📂</div>
-              <p class="dropzone-title">Drag &amp; Drop your CSV file here</p>
-              <p class="dropzone-hint">or <span class="browse-link" id="browse-link">browse to upload</span></p>
-              <div class="dropzone-constraints">
-                <span class="constraint-tag">CSV only</span>
-                <span class="constraint-tag">Max 50 MB</span>
-                <span class="constraint-tag">UTF-8 encoded</span>
-              </div>
-            </div>
-            <input type="file" id="file-input" class="file-input-hidden" accept=".csv" aria-label="Upload CSV file" />
-          </div>
-
-          <!-- Raw Data Preview (injected by script.js after parse) -->
-          <div id="raw-data-preview" class="raw-preview-container" hidden></div>
-
-          <div class="upload-actions">
-            <span class="no-file-text" id="file-label">No file selected</span>
-            <button id="scan-btn" class="btn-scan" type="button" disabled>
-              <span class="btn-icon">⚡</span>
-              <span>Scan Dataset</span>
-            </button>
-          </div>
-        </section>
-
-        <!-- Step 3: Results Dashboard -->
-        <section class="results-section" id="results-section">
-          <div class="section-heading">
-            <!-- Step 3 Indicator -->
-            <div class="step-indicator" id="step-3-indicator">
-              <span class="step-number">3</span>
-              <span class="step-label">Review &amp; Cleanse</span>
-            </div>
-            <h2 class="section-title">Results Dashboard</h2>
-            <div class="results-status" id="results-status">
-              <span class="status-dot-sm" aria-hidden="true"></span>
-              <span>Awaiting scan…</span>
-            </div>
-          </div>
-
-          <!-- Stat Cards -->
-          <div class="stats-row" id="stats-row">
-            <div class="stat-card" id="stat-rows">
-              <span class="stat-value">—</span>
-              <span class="stat-label">Total Rows</span>
-            </div>
-            <div class="stat-card" id="stat-cols">
-              <span class="stat-value">—</span>
-              <span class="stat-label">Columns</span>
-            </div>
-            <div class="stat-card" id="stat-bias">
-              <span class="stat-value">—</span>
-              <span class="stat-label">Bias Score</span>
-            </div>
-            <div class="stat-card" id="stat-flags">
-              <span class="stat-value">—</span>
-              <span class="stat-label">Flags Raised</span>
-            </div>
-          </div>
-
-          <!-- Table / Empty State — wrapped in scroll container -->
-          <div class="table-wrapper" id="table-wrapper">
-            <div class="table-empty-state" id="table-empty-state">
-              <div class="empty-icon">🔬</div>
-              <p class="empty-title">No data scanned yet</p>
-              <p class="empty-desc">Upload a dataset and click "Scan Dataset" to begin analysis</p>
-            </div>
-
-            <table class="results-table" id="results-table" aria-label="Dataset scan results" hidden>
-              <thead id="table-head">
-                <tr><!-- Column headers injected by script.js --></tr>
-              </thead>
-              <tbody id="table-body">
-                <!-- Data rows injected by script.js -->
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════════
-             SUCCESS DASHBOARD (hidden until quarantine runs)
-        ════════════════════════════════════════════════════ -->
-        <section class="success-dashboard" id="success-dashboard" hidden>
-          <div class="success-header">
-            <div class="success-icon-wrap">
-              <span class="success-icon">🛡️</span>
-            </div>
-            <div>
-              <h2 class="success-title">Dataset Successfully Sanitized</h2>
-              <p class="success-subtitle">All flagged bias proxies have been removed. Your dataset is now AI-ethics compliant.</p>
-            </div>
-          </div>
-
-          <div class="success-stats" id="success-stats">
-            <!-- Injected by JS -->
-          </div>
-
-          <div class="clean-preview-section">
-            <div class="clean-preview-heading">
-              <span class="clean-preview-icon">📋</span>
-              <span>Clean Data Preview <span class="clean-preview-tag">First 5 Rows</span></span>
-            </div>
-            <div class="table-scroll-container">
-              <table class="results-table clean-preview-table" id="clean-preview-table" aria-label="Clean data preview">
-                <thead id="clean-preview-head"></thead>
-                <tbody id="clean-preview-body"></tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="success-actions">
-            <button id="download-clean-btn" class="btn-download-clean" type="button">
-              <span class="btn-icon">⬇️</span>
-              <span>Download Clean CSV</span>
-            </button>
-            <button id="restart-btn" class="btn-restart" type="button">
-              <span class="btn-icon">🔄</span>
-              <span>Analyze Another Dataset</span>
-            </button>
-          </div>
-        </section>
-
-      </main>
+    <div class="bg-effects">
+        <div class="bg-grid"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════
-         FOOTER
-    ════════════════════════════════════════════════════ -->
-    <footer class="site-footer" id="site-footer">
-      <span>Lexi-Fair AI &copy; 2025</span>
-      <span class="footer-sep">|</span>
-      <span>Built for Responsible AI</span>
-    </footer>
+    <nav id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                Lexi-feir
+            </a>
+            <div class="nav-links">
+                <a href="#how-it-works">How it Works</a>
+                <a href="#features">Features</a>
+                <a href="#stats">Impact</a>
+            </div>
+            <button id="nav-get-started" class="btn btn-primary">Start Free Trial</button>
+        </div>
+    </nav>
 
-    <!-- PapaParse — CSV parsing library -->
+    <div id="landing-view">
+        <section class="hero">
+            <div class="container">
+                <div class="reveal">
+                    <div class="section-tag">AI Ethics Platform</div>
+                    <h1>Ensure 100% Fair Decisions with <br><span class="text-gradient">Lexi-feir AI</span></h1>
+                    <p>The enterprise-grade bias detection system. Upload your datasets, run our advanced neural audits, and instantly mitigate hidden prejudices before deploying your models.</p>
+                    <div class="hero-btns">
+                        <button id="hero-get-started" class="btn btn-primary">Upload Dataset Now</button>
+                        <a href="#how-it-works" class="btn btn-outline">View Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trusted reveal">
+            <div class="container">
+                <p class="trusted-text">Trusted by innovative AI teams worldwide</p>
+                <div class="logos">
+                    <svg viewBox="0 0 100 30"><text x="10" y="20" font-family="Arial" font-weight="bold" font-size="20">AcmeCorp</text></svg>
+                    <svg viewBox="0 0 100 30"><text x="10" y="20" font-family="Arial" font-weight="bold" font-size="20">GlobalTech</text></svg>
+                    <svg viewBox="0 0 100 30"><text x="10" y="20" font-family="Arial" font-weight="bold" font-size="20">NexAI</text></svg>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-tag">Workflow</div>
+                    <h2>Seamless Integration Flow</h2>
+                    <p class="section-desc">Detecting and fixing AI bias shouldn't be complicated. Our 4-step pipeline makes ethical AI achievable in minutes.</p>
+                </div>
+                <div class="flow-container reveal">
+                    <div class="flow-line"><div class="flow-line-fill" id="flow-progress"></div></div>
+                    <div class="flow-step">
+                        <div class="flow-icon glass">📁</div>
+                        <h3>1. Data Ingestion</h3>
+                        <p>Upload raw datasets via UI, API, or CI/CD pipelines securely.</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon glass">🧠</div>
+                        <h3>2. Deep Audit</h3>
+                        <p>Our neural engine scans for multi-dimensional intersectional bias.</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon glass">📊</div>
+                        <h3>3. Fairness Score</h3>
+                        <p>Review comprehensive visual dashboards and algorithmic metrics.</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon glass">🛡️</div>
+                        <h3>4. Auto-Mitigation</h3>
+                        <p>Apply one-click debiasing algorithms to generate balanced data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-bottom">
+                    &copy; 2026 Lexi-feir AI. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <div id="app-view" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
+        <div class="container app-dashboard">
+            
+            <aside class="app-sidebar glass">
+                <div class="step-indicator" id="step-1-indicator">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Setup Parameters</span>
+                </div>
+                
+                <div class="input-group" style="margin-top: 24px;">
+                    <label for="target-variable-dropdown">🎯 Target Variable</label>
+                    <select id="target-variable-dropdown">
+                        <option value="" disabled selected>Select target variable…</option>
+                        <option value="loan-approval">Loan Approval</option>
+                        <option value="tech-hiring">Tech Hiring</option>
+                        <option value="credit-default">Credit Default Risk</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="language-dropdown">🌐 AI Analysis Language</label>
+                    <select id="language-dropdown">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                    </select>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <label style="display: block; margin-bottom: 12px; font-weight: 600; color: var(--txt-muted);">🗂️ Quick Test Datasets</label>
+                    
+                    <div class="dataset-card card-banking" id="card-banking" role="button" tabindex="0">
+                        <div class="card-header">
+                            <span class="card-badge badge-risk">High Bias Risk</span>
+                        </div>
+                        <h3 class="card-title">Banking Dataset</h3>
+                        <p class="card-desc">15K rows • Known Bias</p>
+                    </div>
+
+                    <div class="dataset-card card-tech" id="card-tech" role="button" tabindex="0" style="margin-top: 12px;">
+                        <div class="card-header">
+                            <span class="card-badge badge-medium">Medium Risk</span>
+                        </div>
+                        <h3 class="card-title">Tech Hiring Dataset</h3>
+                        <p class="card-desc">8.2K rows • Possible Bias</p>
+                    </div>
+
+                    <div class="dataset-card card-safe" id="card-safe" role="button" tabindex="0" style="margin-top: 12px;">
+                        <div class="card-header">
+                            <span class="card-badge badge-safe">Low Risk</span>
+                        </div>
+                        <h3 class="card-title">Safe Dataset</h3>
+                        <p class="card-desc">5K rows • Balanced</p>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="app-main">
+                
+                <section id="upload-section" class="dashboard-card glass">
+                    <div class="section-heading">
+                        <div class="step-indicator" id="step-2-indicator">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Ingest Data</span>
+                        </div>
+                        <h2 class="section-title" style="margin-left: 12px;">Dataset Upload</h2>
+                    </div>
+
+                    <div class="dropzone" id="dropzone">
+                        <div class="dropzone-inner">
+                            <div class="dropzone-icon">📂</div>
+                            <p class="dropzone-title">Drag & Drop your CSV file here</p>
+                            <p class="dropzone-hint">or <span class="browse-link" id="browse-link">browse to upload</span></p>
+                        </div>
+                        <input type="file" id="file-input" class="file-input-hidden" accept=".csv" />
+                    </div>
+
+                    <div id="raw-data-preview" class="raw-preview-container" hidden></div>
+
+                    <div class="upload-actions" style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+                        <span id="file-label" style="color: var(--txt-muted); font-style: italic;">No file selected</span>
+                        <button id="scan-btn" class="btn btn-primary" disabled>⚡ Scan Dataset</button>
+                    </div>
+                </section>
+
+                <section id="results-section" class="dashboard-card glass">
+                    <div class="section-heading" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div class="step-indicator" id="step-3-indicator" style="margin: 0;">
+                                <span class="step-number">3</span>
+                                <span class="step-label">Review & Cleanse</span>
+                            </div>
+                            <h2 class="section-title" style="margin: 0;">Results Dashboard</h2>
+                        </div>
+                        <div id="results-status" style="font-size: 0.85rem; color: var(--txt-muted);">
+                            <span class="status-dot-sm"></span> Awaiting scan...
+                        </div>
+                    </div>
+
+                    <div class="stats-row" id="stats-row">
+                        <div class="stat-card" id="stat-rows">
+                            <span class="stat-value">—</span>
+                            <span class="stat-label">Total Rows</span>
+                        </div>
+                        <div class="stat-card" id="stat-cols">
+                            <span class="stat-value">—</span>
+                            <span class="stat-label">Columns</span>
+                        </div>
+                        <div class="stat-card" id="stat-bias">
+                            <span class="stat-value">—</span>
+                            <span class="stat-label">Bias Score</span>
+                        </div>
+                        <div class="stat-card" id="stat-flags">
+                            <span class="stat-value">—</span>
+                            <span class="stat-label">Flags Raised</span>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper" id="table-wrapper">
+                        <div class="table-empty-state" id="table-empty-state">
+                            <div style="font-size: 2rem; opacity: 0.5;">🔬</div>
+                            <p style="font-weight: 600; color: var(--txt-secondary);">No data scanned yet</p>
+                        </div>
+                        <table class="results-table" id="results-table" hidden>
+                            <thead id="table-head"><tr></tr></thead>
+                            <tbody id="table-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="success-dashboard" class="dashboard-card glass" style="border: 1px solid var(--clr-success);" hidden>
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+                        <div style="width: 50px; height: 50px; background: var(--clr-success-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;">🛡️</div>
+                        <div>
+                            <h2 style="margin: 0; color: var(--clr-success);">Dataset Successfully Sanitized</h2>
+                            <p style="color: var(--txt-secondary); margin: 0;">All flagged bias proxies have been removed.</p>
+                        </div>
+                    </div>
+
+                    <div id="success-stats" style="display: flex; gap: 12px; margin-bottom: 24px;"></div>
+
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 0.85rem; color: var(--txt-muted); text-transform: uppercase; margin-bottom: 12px;">Clean Data Preview <span style="background: var(--bg-surface); padding: 2px 8px; border-radius: 100px; font-size: 0.7rem; color: var(--accent-cyan);">First 5 Rows</span></h4>
+                        <div class="table-scroll-container">
+                            <table class="clean-preview-table" id="clean-preview-table">
+                                <thead id="clean-preview-head"></thead>
+                                <tbody id="clean-preview-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 16px;">
+                        <button id="download-clean-btn" class="btn btn-primary" style="animation: downloadPulse 2.4s infinite;">⬇️ Download Clean CSV</button>
+                        <button id="restart-btn" class="btn btn-outline">🔄 Analyze Another Dataset</button>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="script.js" defer></script>
-  </body>
+    
+    <script>
+        // Transition Logic
+        const landingView = document.getElementById('landing-view');
+        const appView = document.getElementById('app-view');
+        const getStartedBtns = [document.getElementById('nav-get-started'), document.getElementById('hero-get-started')];
+
+        getStartedBtns.forEach(btn => {
+            if(btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    landingView.style.opacity = '0';
+                    setTimeout(() => {
+                        landingView.style.display = 'none';
+                        appView.style.display = 'block';
+                        void appView.offsetWidth; 
+                        appView.style.opacity = '1';
+                        window.scrollTo(0,0);
+                    }, 500); 
+                });
+            }
+        });
+
+        // Scroll Observer for Landing Page animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    if (entry.target.querySelector('.flow-line-fill')) {
+                        setTimeout(() => { entry.target.querySelector('.flow-line-fill').style.width = '100%'; }, 400);
+                    }
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
 </html>
