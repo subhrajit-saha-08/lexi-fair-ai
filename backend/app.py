@@ -119,7 +119,7 @@ def analyze():
 
     # ── Try live Gemini API first ────────────────────────────────────────────
     try:
-        model = genai.GenerativeModel('gemini-2.0-flash')
+        model = genai.GenerativeModel('gemini-2.5-flash')
         prompt = f"""
 You are an Enterprise AI Ethics Auditor.
 Analyze the following dataset headers: {schema_headers}. Identify any 'Hidden Proxies' for protected classes (race, gender, socioeconomic status) that could bias the prediction of the target variable '{target_variable}'.
