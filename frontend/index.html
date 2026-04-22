@@ -29,15 +29,6 @@
         <nav class="header-nav" id="header-nav">
           <span class="nav-badge">v1.0 Beta</span>
 
-          <div class="lang-selector">
-            <select id="language-dropdown" class="lang-dropdown" aria-label="Select language">
-              <option value="en">🌐 English</option>
-              <option value="hi">🌐 हिन्दी</option>
-              <option value="es">🌐 Español</option>
-              <option value="fr">🌐 Français</option>
-            </select>
-          </div>
-
           <div class="header-status">
             <span class="status-dot" aria-hidden="true"></span>
             <span class="status-text">System Ready</span>
@@ -55,6 +46,12 @@
       <!-- ─── SIDEBAR / CONTROL PANEL ─── -->
       <aside class="control-panel" id="control-panel">
 
+        <!-- Step 1 Indicator -->
+        <div class="step-indicator step-indicator--active" id="step-1-indicator">
+          <span class="step-number">1</span>
+          <span class="step-label">Setup Parameters</span>
+        </div>
+
         <!-- Target Variable -->
         <section class="panel-section" id="target-variable-section">
           <div class="section-label">
@@ -70,6 +67,24 @@
               <option value="default-outcome">Default Outcome</option>
               <option value="credit-score">Credit Score</option>
               <option value="recidivism">Recidivism Risk</option>
+            </select>
+            <span class="select-arrow" aria-hidden="true">▾</span>
+          </div>
+        </section>
+
+        <!-- AI Analysis Language -->
+        <section class="panel-section" id="language-section" style="margin-top:4px;">
+          <label class="section-label" for="language-dropdown">
+            <span class="section-icon">🌐</span>
+            <span>AI Analysis Language</span>
+          </label>
+          <p class="section-desc">Language for AI-generated bias explanations</p>
+          <div class="select-wrapper">
+            <select id="language-dropdown" class="target-dropdown" aria-label="Select analysis language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी (Hindi)</option>
+              <option value="es">Español (Spanish)</option>
+              <option value="fr">Français (French)</option>
             </select>
             <span class="select-arrow" aria-hidden="true">▾</span>
           </div>
@@ -143,9 +158,14 @@
       <!-- ─── MAIN CONTENT ─── -->
       <main class="main-content" id="main-content">
 
-        <!-- Upload Zone -->
+        <!-- Step 2: Upload Zone -->
         <section class="upload-section" id="upload-section">
           <div class="section-heading">
+            <!-- Step 2 Indicator -->
+            <div class="step-indicator" id="step-2-indicator">
+              <span class="step-number">2</span>
+              <span class="step-label">Ingest Data</span>
+            </div>
             <h2 class="section-title">Dataset Upload</h2>
             <span class="section-subtitle">Upload a CSV file for AI bias analysis</span>
           </div>
@@ -164,6 +184,9 @@
             <input type="file" id="file-input" class="file-input-hidden" accept=".csv" aria-label="Upload CSV file" />
           </div>
 
+          <!-- Raw Data Preview (injected by script.js after parse) -->
+          <div id="raw-data-preview" class="raw-preview-container" hidden></div>
+
           <div class="upload-actions">
             <span class="no-file-text" id="file-label">No file selected</span>
             <button id="scan-btn" class="btn-scan" type="button" disabled>
@@ -173,9 +196,14 @@
           </div>
         </section>
 
-        <!-- Results Dashboard -->
+        <!-- Step 3: Results Dashboard -->
         <section class="results-section" id="results-section">
           <div class="section-heading">
+            <!-- Step 3 Indicator -->
+            <div class="step-indicator" id="step-3-indicator">
+              <span class="step-number">3</span>
+              <span class="step-label">Review &amp; Cleanse</span>
+            </div>
             <h2 class="section-title">Results Dashboard</h2>
             <div class="results-status" id="results-status">
               <span class="status-dot-sm" aria-hidden="true"></span>
@@ -203,7 +231,7 @@
             </div>
           </div>
 
-          <!-- Table / Empty State -->
+          <!-- Table / Empty State — wrapped in scroll container -->
           <div class="table-wrapper" id="table-wrapper">
             <div class="table-empty-state" id="table-empty-state">
               <div class="empty-icon">🔬</div>
@@ -213,12 +241,55 @@
 
             <table class="results-table" id="results-table" aria-label="Dataset scan results" hidden>
               <thead id="table-head">
-                <tr><!-- Column headers injected by script.js in Phase 3+ --></tr>
+                <tr><!-- Column headers injected by script.js --></tr>
               </thead>
               <tbody id="table-body">
-                <!-- Data rows injected by script.js in Phase 3+ -->
+                <!-- Data rows injected by script.js -->
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════
+             SUCCESS DASHBOARD (hidden until quarantine runs)
+        ════════════════════════════════════════════════════ -->
+        <section class="success-dashboard" id="success-dashboard" hidden>
+          <div class="success-header">
+            <div class="success-icon-wrap">
+              <span class="success-icon">🛡️</span>
+            </div>
+            <div>
+              <h2 class="success-title">Dataset Successfully Sanitized</h2>
+              <p class="success-subtitle">All flagged bias proxies have been removed. Your dataset is now AI-ethics compliant.</p>
+            </div>
+          </div>
+
+          <div class="success-stats" id="success-stats">
+            <!-- Injected by JS -->
+          </div>
+
+          <div class="clean-preview-section">
+            <div class="clean-preview-heading">
+              <span class="clean-preview-icon">📋</span>
+              <span>Clean Data Preview <span class="clean-preview-tag">First 5 Rows</span></span>
+            </div>
+            <div class="table-scroll-container">
+              <table class="results-table clean-preview-table" id="clean-preview-table" aria-label="Clean data preview">
+                <thead id="clean-preview-head"></thead>
+                <tbody id="clean-preview-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="success-actions">
+            <button id="download-clean-btn" class="btn-download-clean" type="button">
+              <span class="btn-icon">⬇️</span>
+              <span>Download Clean CSV</span>
+            </button>
+            <button id="restart-btn" class="btn-restart" type="button">
+              <span class="btn-icon">🔄</span>
+              <span>Analyze Another Dataset</span>
+            </button>
           </div>
         </section>
 
@@ -234,7 +305,7 @@
       <span>Built for Responsible AI</span>
     </footer>
 
-    <!-- PapaParse — CSV parsing library (Phase 2) -->
+    <!-- PapaParse — CSV parsing library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="script.js" defer></script>
   </body>
