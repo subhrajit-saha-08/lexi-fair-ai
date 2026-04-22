@@ -875,21 +875,47 @@ function setUIScanning() {
     "> [SUCCESS] COMPILING ENTERPRISE ETHICS REPORT..."
   ];
 
+  const loopLines = [
+    "> [PROCESS] CORRELATING DEMOGRAPHIC VECTORS...",
+    "> [PROCESS] EXECUTING HEURISTIC CHECKS...",
+    "> [PROCESS] EVALUATING FAIRNESS METRICS...",
+    "> [PROCESS] DEEP SCANNING DATA ROWS...",
+    "> [PROCESS] ANALYZING RISK PROBABILITIES...",
+    "> [PROCESS] VALIDATING ETHICS COMPLIANCE..."
+  ];
+
   const container = document.getElementById('terminal-lines');
   let currentLine = 0;
 
-  const interval = setInterval(() => {
+  if (window.hackerInterval) clearInterval(window.hackerInterval);
+
+  window.hackerInterval = setInterval(() => {
+    // Stop the interval if the container is removed from the DOM
+    if (!document.getElementById('terminal-lines')) {
+      clearInterval(window.hackerInterval);
+      return;
+    }
+
+    const p = document.createElement('div');
     if (currentLine < lines.length) {
-      const p = document.createElement('div');
       p.textContent = lines[currentLine];
-      p.style.opacity = '0';
-      p.style.transform = 'translateX(-8px)';
-      p.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
-      container.appendChild(p);
-      requestAnimationFrame(() => { p.style.opacity = '1'; p.style.transform = 'translateX(0)'; });
-      currentLine++;
     } else {
-      clearInterval(interval);
+      const phrase = loopLines[Math.floor(Math.random() * loopLines.length)];
+      const hex = Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, '0').toUpperCase();
+      p.textContent = `${phrase} [0x${hex}]`;
+    }
+
+    p.style.opacity = '0';
+    p.style.transform = 'translateX(-8px)';
+    p.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+    container.appendChild(p);
+
+    requestAnimationFrame(() => { p.style.opacity = '1'; p.style.transform = 'translateX(0)'; });
+    currentLine++;
+
+    // Keep the terminal from growing infinitely
+    if (container.children.length > 8) {
+      container.removeChild(container.firstChild);
     }
   }, 450);
 
