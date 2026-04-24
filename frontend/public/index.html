@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexi-feir | Next-Gen AI Bias Detection</title>
+    <title>Lexi-Fair | Next-Gen AI Bias Detection</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
-        <linearGradient id="icon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#3b82f6" />
-            <stop offset="50%" stop-color="#c084fc" />
-            <stop offset="100%" stop-color="#ec4899" />
-        </linearGradient>
-    </svg>
+    <canvas id="global-particle-canvas"></canvas>
 
-    <div class="bg-effects">
-        <div class="bg-grid"></div>
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
+    <svg class="global-flow-lines" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <linearGradient id="nl-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0" />
+                <stop offset="50%" stop-color="#9d4edd" stop-opacity="0.8" />
+                <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="nl-grad-2" x1="100%" y1="0%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0" />
+                <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#9d4edd" stop-opacity="0" />
+            </linearGradient>
+        </defs>
+        <path class="nl-path nl-path--1" d="M-50,150 Q320,80 640,200 T1330,120" stroke="url(#nl-grad-1)"
+            stroke-width="2" fill="none" />
+        <path class="nl-path nl-path--2" d="M-50,420 Q320,350 640,480 T1330,380" stroke="url(#nl-grad-2)"
+            stroke-width="1.5" fill="none" />
+        <path class="nl-path nl-path--3" d="M1330,300 Q960,200 640,320 T-50,260" stroke="url(#nl-grad-1)"
+            stroke-width="1.5" fill="none" />
+        <circle class="nl-pulse nl-pulse--1" r="4" fill="#9d4edd">
+            <animateMotion dur="10s" repeatCount="indefinite" path="M-50,150 Q320,80 640,200 T1330,120" />
+        </circle>
+        <circle class="nl-pulse nl-pulse--2" r="3" fill="#06b6d4">
+            <animateMotion dur="14s" repeatCount="indefinite" begin="1.5s" path="M-50,420 Q320,350 640,480 T1330,380" />
+        </circle>
+        <circle class="nl-pulse nl-pulse--3" r="3" fill="#ec4899">
+            <animateMotion dur="12s" repeatCount="indefinite" begin="3s" path="M1330,300 Q960,200 640,320 T-50,260" />
+        </circle>
+    </svg>
 
     <nav id="navbar">
         <div class="container nav-inner">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                </div>
-                Lexi-feir
-            </a>
-            <div class="nav-links">
+            <div class="nav-left" style="display: flex; align-items: center; gap: 16px;">
+                <button id="nav-go-back" class="btn btn-outline"
+                    style="padding: 8px 16px; font-size: 0.85rem; border-color: rgba(255,255,255,0.1); display: none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back
+                </button>
+
+                <a href="#" class="logo">
+                    <div class="logo-img-wrapper">
+                        <img src="Logo lexi.png" alt="Lexi-Fair AI Logo">
+                    </div>
+                    <div class="logo-text-wrapper">
+                        <span class="brand-name">Lexi-Fair</span>
+                        <span class="brand-ai">AI</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="nav-links" id="nav-links">
                 <a href="#how-it-works">How it Works</a>
                 <a href="#features">Features</a>
                 <a href="#stats">Impact</a>
@@ -44,27 +81,123 @@
     </nav>
 
     <div id="landing-view">
-        <section class="hero">
-            <div class="container">
-                <div class="reveal">
-                    <div class="section-tag">AI Ethics Platform</div>
-                    <h1>Ensure 100% Fair Decisions with <br><span class="text-gradient">Lexi-feir AI</span></h1>
-                    <p>The enterprise-grade bias detection system. Upload your datasets, run our advanced neural audits, and instantly mitigate hidden prejudices before deploying your models.</p>
-                    <div class="hero-btns">
-                        <button id="hero-get-started" class="btn btn-primary">Upload Dataset Now</button>
-                        <a href="#how-it-works" class="btn btn-outline">View Live Demo</a>
+
+        <section class="hero hero-slider-section" id="hero-slider-root">
+            <div class="hero-slides-track" id="hero-slides-track">
+                <div class="hero-slide" data-slide="0" aria-hidden="false">
+                    <div class="container">
+                        <div class="slide-inner">
+                            <div class="slide-tag-wrap">
+                                <div class="section-tag slide-animate-tag">AI Ethics Platform</div>
+                            </div>
+                            <h1 class="slide-headline slide-animate-headline">Ensure 100% Fair<br><span
+                                    class="text-gradient">Decisions</span></h1>
+                            <p class="slide-subtext slide-animate-subtext">The enterprise-grade bias detection system.
+                                Upload your datasets, run our advanced neural audits, and instantly mitigate hidden
+                                prejudices.</p>
+                            <div class="hero-btns slide-animate-btns">
+                                <button id="hero-get-started" class="btn btn-primary">Upload Dataset Now</button>
+                                <a href="#how-it-works" class="btn btn-outline">View Live Demo</a>
+                            </div>
+                            <div class="slide-metric-strip slide-animate-metrics">
+                                <div class="slide-metric"><span class="slide-metric-val">99%</span><span
+                                        class="slide-metric-label">Audit Accuracy</span></div>
+                                <div class="slide-metric-divider"></div>
+                                <div class="slide-metric"><span class="slide-metric-val">ZERO</span><span
+                                        class="slide-metric-label">Data Leakage</span></div>
+                                <div class="slide-metric-divider"></div>
+                                <div class="slide-metric"><span class="slide-metric-val">Real-Time</span><span
+                                        class="slide-metric-label">BIAS MITIGATION</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="hero-slide" data-slide="1" aria-hidden="true">
+                    <div class="container">
+                        <div class="slide-inner">
+                            <div class="slide-tag-wrap">
+                                <div class="section-tag slide-animate-tag">Neural Engine</div>
+                            </div>
+                            <h1 class="slide-headline slide-animate-headline">Deep Intersectional<br><span
+                                    class="text-gradient">Audits</span></h1>
+                            <p class="slide-subtext slide-animate-subtext">Don't just check single traits. Our neural
+                                engine analyzes complex overlaps to find deeply hidden biases across millions of data
+                                points.</p>
+                            <div class="hero-btns slide-animate-btns">
+                                <button class="btn btn-primary hero-slide-cta">Explore the Engine</button>
+                                <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-slide" data-slide="2" aria-hidden="true">
+                    <div class="container">
+                        <div class="slide-inner">
+                            <div class="slide-tag-wrap">
+                                <div class="section-tag slide-animate-tag">Auto-Mitigation</div>
+                            </div>
+                            <h1 class="slide-headline slide-animate-headline">One-Click Auto-<br><span
+                                    class="text-gradient">Mitigation</span></h1>
+                            <p class="slide-subtext slide-animate-subtext">Move beyond detection. Actively repair data
+                                with mathematical reweighing to download perfectly balanced datasets instantly.</p>
+                            <div class="hero-btns slide-animate-btns">
+                                <button class="btn btn-primary hero-slide-cta">Try Auto-Repair</button>
+                                <a href="#features" class="btn btn-outline">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-slide" data-slide="3" aria-hidden="true">
+                    <div class="container">
+                        <div class="slide-inner">
+                            <div class="slide-tag-wrap">
+                                <div class="section-tag slide-animate-tag">Global Compliance</div>
+                            </div>
+                            <h1 class="slide-headline slide-animate-headline">Global Compliance<br><span
+                                    class="text-gradient">Ready</span></h1>
+                            <p class="slide-subtext slide-animate-subtext">Pre-configured checks for the EU AI Act,
+                                GDPR, and other global frameworks. Build models the world can trust.</p>
+                            <div class="hero-btns slide-animate-btns">
+                                <button class="btn btn-primary hero-slide-cta">Check Compliance</button>
+                                <a href="#stats" class="btn btn-outline">View Value</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-pagination" id="hero-pagination" role="tablist">
+                <button class="hero-dot hero-dot--active" data-dot="0"><span class="hero-dot-progress"></span></button>
+                <button class="hero-dot" data-dot="1"><span class="hero-dot-progress"></span></button>
+                <button class="hero-dot" data-dot="2"><span class="hero-dot-progress"></span></button>
+                <button class="hero-dot" data-dot="3"><span class="hero-dot-progress"></span></button>
             </div>
         </section>
 
         <section class="trusted reveal">
             <div class="container">
-                <p class="trusted-text">Trusted by innovative AI teams worldwide</p>
-                <div class="logos">
-                    <svg viewBox="0 0 100 30"><text x="10" y="20" font-family="Arial" font-weight="bold" font-size="20">AcmeCorp</text></svg>
-                    <svg viewBox="0 0 100 30"><text x="10" y="20" font-family="Arial" font-weight="bold" font-size="20">GlobalTech</text></svg>
-                    <svg viewBox="0 0 100 30"><text x="10" y="20" font-family="Arial" font-weight="bold" font-size="20">NexAI</text></svg>
+                <p class="trusted-text">ENGINEERED FOR HIGH-STAKES INDUSTRIES</p>
+                <div class="logos"
+                    style="display: flex; gap: 56px; align-items: center; justify-content: center; flex-wrap: wrap;">
+
+                    <div
+                        style="display: flex; align-items: center; gap: 12px; font-size: 1.15rem; font-weight: 700; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                        <span style="font-size: 1.6rem; opacity: 0.9;">🏦</span> Financial Services
+                    </div>
+
+                    <div
+                        style="display: flex; align-items: center; gap: 12px; font-size: 1.15rem; font-weight: 700; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                        <span style="font-size: 1.6rem; opacity: 0.9;">👥</span> Human Resources
+                    </div>
+
+                    <div
+                        style="display: flex; align-items: center; gap: 12px; font-size: 1.15rem; font-weight: 700; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; font-family: 'Inter', sans-serif;">
+                        <span style="font-size: 1.6rem; opacity: 0.9;">🏥</span> Healthcare Tech
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -74,10 +207,13 @@
                 <div class="section-header reveal">
                     <div class="section-tag">Workflow</div>
                     <h2>Seamless Integration Flow</h2>
-                    <p class="section-desc">Detecting and fixing AI bias shouldn't be complicated. Our 4-step pipeline makes ethical AI achievable in minutes.</p>
+                    <p class="section-desc">Detecting and fixing AI bias shouldn't be complicated. Our 4-step pipeline
+                        makes ethical AI achievable in minutes.</p>
                 </div>
                 <div class="flow-container reveal">
-                    <div class="flow-line"><div class="flow-line-fill" id="flow-progress"></div></div>
+                    <div class="flow-line">
+                        <div class="flow-line-fill" id="flow-progress"></div>
+                    </div>
                     <div class="flow-step">
                         <div class="flow-icon glass">📁</div>
                         <h3>1. Data Ingestion</h3>
@@ -102,10 +238,149 @@
             </div>
         </section>
 
+        <section id="features" class="scroll-mt">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-tag">Capabilities</div>
+                    <h2>Advanced <span class="text-gradient">Features</span></h2>
+                    <p class="section-desc">End-to-end fairness workflows. Audit, visualize, and mitigate dataset biases
+                        with an intuitive enterprise engine.</p>
+                </div>
+
+                <div class="features-grid-pro">
+                    <div class="feature-card-pro glass reveal">
+                        <div class="fc-content">
+                            <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="stroke: #00d4ff;">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg></div>
+                            <h3>Data Auditing Module</h3>
+                            <p>Upload CSV and parse to JSON instantly. Experience true no-code data ingestion with rapid
+                                schema recognition.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card-pro glass reveal" style="transition-delay: 0.1s;">
+                        <div class="fc-content">
+                            <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="stroke: #ec4899;">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    <path d="M11 8v2"></path>
+                                    <path d="M11 14h.01"></path>
+                                </svg></div>
+                            <h3>Semantic Bias Detection</h3>
+                            <p>Go beyond surface metrics. Detect hidden proxy biases and intelligently highlight the
+                                riskiest columns in your dataset.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card-pro glass reveal" style="transition-delay: 0.2s;">
+                        <div class="fc-content">
+                            <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="stroke: #9d4edd;">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                    </polygon>
+                                </svg></div>
+                            <h3>Fairness Scoring System</h3>
+                            <p>Proprietary 0–100 grading engine. Instantly categorize model risk levels into Low,
+                                Medium, and High thresholds.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card-pro glass reveal">
+                        <div class="fc-content">
+                            <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="stroke: #3b82f6;">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                                </svg></div>
+                            <h3>Visualization Dashboard</h3>
+                            <p>Interactive color-coded UI. Visually track flagged columns with red/yellow indicators for
+                                rapid cognitive processing.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card-pro glass reveal feature-span-2" style="transition-delay: 0.1s;">
+                        <div class="fc-content">
+                            <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="stroke: #10b981;">
+                                    <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path>
+                                    <polyline points="21 3 21 8 16 8"></polyline>
+                                </svg></div>
+                            <h3>Bias Mitigation & Quarantine</h3>
+                            <p>Don't just detect—resolve. Automatically quarantine and remove biased columns, outputting
+                                a mathematically sanitized dataset ready for training.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="scroll-mt">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div class="section-tag">Business Value</div>
+                    <h2>Why Lexi-Fair <span class="text-gradient">Matters</span></h2>
+                    <p class="section-desc">Quantifiable impact for enterprise AI teams. Reduce risk, ensure compliance,
+                        and build products the world can trust.</p>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="bento-card bento-large glass reveal">
+                        <div class="bento-bg-glow glow-red"></div>
+                        <div class="bento-content">
+                            <div class="bento-stat text-gradient">40%</div>
+                            <h3>Risk Reduction</h3>
+                            <p>Prevent biased AI decisions before they reach production, mitigating brand damage and
+                                saving millions in potential regulatory fines.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card bento-large glass reveal" style="transition-delay: 0.1s;">
+                        <div class="bento-bg-glow glow-blue"></div>
+                        <div class="bento-content">
+                            <div class="bento-stat text-gradient">3x</div>
+                            <h3>Faster Deployment</h3>
+                            <p>Clean data equals faster model training. Automate your data auditing to accelerate your
+                                AI pipeline without sacrificing ethical standards.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card glass reveal">
+                        <div class="bento-content">
+                            <div class="bento-icon">⚖️</div>
+                            <h3>Compliance Ready</h3>
+                            <p>Align instantly with the EU AI Act, GDPR, and emerging global AI regulations.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card glass reveal" style="transition-delay: 0.1s;">
+                        <div class="bento-content">
+                            <div class="bento-icon">🤝</div>
+                            <h3>Trust & Transparency</h3>
+                            <p>Build inherently ethical AI systems that users, stakeholders, and investors trust.</p>
+                        </div>
+                    </div>
+                    <div class="bento-card glass reveal" style="transition-delay: 0.2s;">
+                        <div class="bento-content">
+                            <div class="bento-icon">🏢</div>
+                            <h3>Enterprise Ready</h3>
+                            <p>Highly scalable, locally processed datasets ensure your proprietary data never leaks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <footer>
             <div class="container">
                 <div class="footer-bottom">
-                    &copy; 2026 Lexi-feir AI. All rights reserved.
+                    &copy; 2026 Lexi-Fair AI. All rights reserved.
                 </div>
             </div>
         </footer>
@@ -113,14 +388,14 @@
 
 
     <div id="app-view" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
-        <div class="container app-dashboard">
-            
-            <aside class="app-sidebar glass">
+        <div class="container app-dashboard" id="main-dashboard-grid">
+
+            <aside class="app-sidebar glass" id="app-sidebar">
                 <div class="step-indicator" id="step-1-indicator">
                     <span class="step-number">1</span>
                     <span class="step-label">Setup Parameters</span>
                 </div>
-                
+
                 <div class="input-group" style="margin-top: 24px;">
                     <label for="target-variable-dropdown">🎯 Target Variable</label>
                     <select id="target-variable-dropdown">
@@ -141,8 +416,9 @@
                 </div>
 
                 <div style="margin-top: 40px;">
-                    <label style="display: block; margin-bottom: 12px; font-weight: 600; color: var(--txt-muted);">🗂️ Quick Test Datasets</label>
-                    
+                    <label style="display: block; margin-bottom: 12px; font-weight: 600; color: var(--txt-muted);">🗂️
+                        Quick Test Datasets</label>
+
                     <div class="dataset-card card-banking" id="card-banking" role="button" tabindex="0">
                         <div class="card-header">
                             <span class="card-badge badge-risk">High Bias Risk</span>
@@ -151,7 +427,8 @@
                         <p class="card-desc">15K rows • Known Bias</p>
                     </div>
 
-                    <div class="dataset-card card-tech" id="card-tech" role="button" tabindex="0" style="margin-top: 12px;">
+                    <div class="dataset-card card-tech" id="card-tech" role="button" tabindex="0"
+                        style="margin-top: 12px;">
                         <div class="card-header">
                             <span class="card-badge badge-medium">Medium Risk</span>
                         </div>
@@ -159,7 +436,8 @@
                         <p class="card-desc">8.2K rows • Possible Bias</p>
                     </div>
 
-                    <div class="dataset-card card-safe" id="card-safe" role="button" tabindex="0" style="margin-top: 12px;">
+                    <div class="dataset-card card-safe" id="card-safe" role="button" tabindex="0"
+                        style="margin-top: 12px;">
                         <div class="card-header">
                             <span class="card-badge badge-safe">Low Risk</span>
                         </div>
@@ -169,8 +447,8 @@
                 </div>
             </aside>
 
-            <main class="app-main">
-                
+            <main class="app-main" id="app-main">
+
                 <section id="upload-section" class="dashboard-card glass">
                     <div class="section-heading">
                         <div class="step-indicator" id="step-2-indicator">
@@ -184,21 +462,25 @@
                         <div class="dropzone-inner">
                             <div class="dropzone-icon">📂</div>
                             <p class="dropzone-title">Drag & Drop your CSV file here</p>
-                            <p class="dropzone-hint">or <span class="browse-link" id="browse-link">browse to upload</span></p>
+                            <p class="dropzone-hint">or <span class="browse-link" id="browse-link">browse to
+                                    upload</span></p>
                         </div>
                         <input type="file" id="file-input" class="file-input-hidden" accept=".csv" />
                     </div>
 
                     <div id="raw-data-preview" class="raw-preview-container" hidden></div>
 
-                    <div class="upload-actions" style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
-                        <span id="file-label" style="color: var(--txt-muted); font-style: italic;">No file selected</span>
+                    <div class="upload-actions"
+                        style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+                        <span id="file-label" style="color: var(--txt-muted); font-style: italic;">No file
+                            selected</span>
                         <button id="scan-btn" class="btn btn-primary" disabled>⚡ Scan Dataset</button>
                     </div>
                 </section>
 
                 <section id="results-section" class="dashboard-card glass">
-                    <div class="section-heading" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <div class="section-heading"
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <div class="step-indicator" id="step-3-indicator" style="margin: 0;">
                                 <span class="step-number">3</span>
@@ -207,7 +489,7 @@
                             <h2 class="section-title" style="margin: 0;">Results Dashboard</h2>
                         </div>
                         <div id="results-status" style="font-size: 0.85rem; color: var(--txt-muted);">
-                            <span class="status-dot-sm"></span> Awaiting scan...
+                            <span class="status-dot-sm"></span> 
                         </div>
                     </div>
 
@@ -236,25 +518,46 @@
                             <p style="font-weight: 600; color: var(--txt-secondary);">No data scanned yet</p>
                         </div>
                         <table class="results-table" id="results-table" hidden>
-                            <thead id="table-head"><tr></tr></thead>
+                            <thead id="table-head">
+                                <tr></tr>
+                            </thead>
                             <tbody id="table-body"></tbody>
                         </table>
                     </div>
+
+                    <div class="charts-grid" id="analytics-charts" style="display:none;">
+                        <div class="chart-card">
+                            <div class="chart-title">Risk Distribution</div>
+                            <canvas id="biasPieChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">Proxy Impact Analysis</div>
+                            <canvas id="biasBarChart"></canvas>
+                        </div>
+                    </div>
                 </section>
 
-                <section id="success-dashboard" class="dashboard-card glass" style="border: 1px solid var(--clr-success);" hidden>
+                <section id="success-dashboard" class="dashboard-card glass"
+                    style="border: 1px solid var(--clr-success);" hidden>
                     <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
-                        <div style="width: 50px; height: 50px; background: var(--clr-success-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;">🛡️</div>
+                        <div
+                            style="width: 50px; height: 50px; background: var(--clr-success-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;">
+                            🛡️</div>
                         <div>
                             <h2 style="margin: 0; color: var(--clr-success);">Dataset Successfully Sanitized</h2>
-                            <p style="color: var(--txt-secondary); margin: 0;">All flagged bias proxies have been removed.</p>
+                            <p style="color: var(--txt-secondary); margin: 0;">All flagged bias proxies have been
+                                removed.</p>
                         </div>
                     </div>
 
                     <div id="success-stats" style="display: flex; gap: 12px; margin-bottom: 24px;"></div>
 
                     <div style="margin-bottom: 24px;">
-                        <h4 style="font-size: 0.85rem; color: var(--txt-muted); text-transform: uppercase; margin-bottom: 12px;">Clean Data Preview <span style="background: var(--bg-surface); padding: 2px 8px; border-radius: 100px; font-size: 0.7rem; color: var(--accent-cyan);">First 5 Rows</span></h4>
+                        <h4
+                            style="font-size: 0.85rem; color: var(--txt-muted); text-transform: uppercase; margin-bottom: 12px;">
+                            Clean Data Preview <span
+                                style="background: var(--bg-surface); padding: 2px 8px; border-radius: 100px; font-size: 0.7rem; color: var(--accent-cyan);">First
+                                5 Rows</span></h4>
                         <div class="table-scroll-container">
                             <table class="clean-preview-table" id="clean-preview-table">
                                 <thead id="clean-preview-head"></thead>
@@ -263,54 +566,28 @@
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 16px;">
-                        <button id="download-clean-btn" class="btn btn-primary" style="animation: downloadPulse 2.4s infinite;">⬇️ Download Clean CSV</button>
-                        <button id="restart-btn" class="btn btn-outline">🔄 Analyze Another Dataset</button>
+                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
+                        <button id="download-clean-btn" class="btn btn-primary"
+                            style="animation: downloadPulse 2.4s infinite;">⬇️ Download Clean CSV</button>
+                        <button id="restart-btn" class="btn btn-outline" style="margin-left: auto;">🔄 Analyze Another Dataset</button>
                     </div>
                 </section>
 
             </main>
         </div>
+
+        <div id="bottom-interaction-layer">
+            <div class="bil-info">Target: <span class="bil-val" id="bil-target-val">None</span></div>
+            <div class="bil-info" style="border-left: 1px solid var(--border-default); padding-left: 16px;">Lang: <span
+                    class="bil-val" id="bil-lang-val">EN</span></div>
+            <button id="btn-edit-params" class="btn btn-outline"
+                style="padding: 6px 16px; font-size: 0.8rem; border-radius: 100px; margin-left: 8px;">⚙️ Edit
+                Config</button>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <script src="script.js" defer></script>
-    
-    <script>
-        // Transition Logic
-        const landingView = document.getElementById('landing-view');
-        const appView = document.getElementById('app-view');
-        const getStartedBtns = [document.getElementById('nav-get-started'), document.getElementById('hero-get-started')];
-
-        getStartedBtns.forEach(btn => {
-            if(btn) {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    landingView.style.opacity = '0';
-                    setTimeout(() => {
-                        landingView.style.display = 'none';
-                        appView.style.display = 'block';
-                        void appView.offsetWidth; 
-                        appView.style.opacity = '1';
-                        window.scrollTo(0,0);
-                    }, 500); 
-                });
-            }
-        });
-
-        // Scroll Observer for Landing Page animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    if (entry.target.querySelector('.flow-line-fill')) {
-                        setTimeout(() => { entry.target.querySelector('.flow-line-fill').style.width = '100%'; }, 400);
-                    }
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
