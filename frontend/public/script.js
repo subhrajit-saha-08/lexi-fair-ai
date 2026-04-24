@@ -424,7 +424,7 @@ if (scanBtn) {
 const TRAP_DATASETS = {
   'card-banking': { file: 'datasets/banking.csv',      label: 'banking.csv',      targetValue: 'loan-approval'    },
   'card-tech':    { file: 'datasets/tech_hiring.csv',  label: 'tech_hiring.csv',  targetValue: 'tech-hiring'      },
-  'card-safe':    { file: 'datasets/safe_dataset.csv', label: 'safe_dataset.csv', targetValue: 'default-outcome'  }
+  'card-safe':    { file: 'datasets/safe_dataset.csv', label: 'safe_dataset.csv', targetValue: 'credit-default' }
 };
 
 Object.entries(TRAP_DATASETS).forEach(([cardId, meta]) => {

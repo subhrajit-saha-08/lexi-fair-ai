@@ -377,10 +377,70 @@
             </div>
         </section>
 
-        <footer>
+        <footer class="glass"
+            style="margin-top: 80px; padding: 60px 0 24px 0; border-top: 1px solid var(--glass-border); border-bottom: none; border-left: none; border-right: none; border-radius: 0; background: rgba(2, 4, 10, 0.3);">
             <div class="container">
-                <div class="footer-bottom">
-                    &copy; 2026 Lexi-Fair AI. All rights reserved.
+                <div
+                    style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 48px; max-width: 1050px; margin-left: auto; margin-right: auto;">
+                    <!-- Column 1: Brand -->
+                    <div style="max-width: 350px;">
+                        <div class="logo-text-wrapper" style="margin-bottom: 16px; font-size: 1.2rem;">
+                            <span class="brand-name">Lexi-Fair</span><span class="brand-ai">AI</span>
+                        </div>
+                        <p style="color: var(--txt-secondary); line-height: 1.6; font-size: 0.9rem;">
+                            The enterprise-grade bias detection system. Ensuring 100% fair decisions through neural
+                            auditing and auto-mitigation.
+                        </p>
+                    </div>
+
+                    <!-- Column 2: Project Resources -->
+                    <div>
+                        <h4 style="color: var(--txt-primary); font-size: 1rem; margin-bottom: 20px; font-weight: 600;">
+                            Project Resources</h4>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                            <li><a href="https://github.com/sample-repo" target="_blank"
+                                    style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='var(--neon-cyan)'"
+                                    onmouseout="this.style.color='var(--txt-secondary)'">GitHub Repository</a></li>
+                            <li><a href="https://youtube.com/sample-video" target="_blank"
+                                    style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='var(--neon-cyan)'"
+                                    onmouseout="this.style.color='var(--txt-secondary)'">Video Demo</a></li>
+                            <li><a href="https://pitchdeck.sample/view" target="_blank"
+                                    style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='var(--neon-cyan)'"
+                                    onmouseout="this.style.color='var(--txt-secondary)'">Pitch Deck</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Team / Legal -->
+                    <div>
+                        <h4 style="color: var(--txt-primary); font-size: 1rem; margin-bottom: 20px; font-weight: 600;">
+                            Legal & Docs</h4>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                            <li><a href="#"
+                                    style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='var(--neon-cyan)'"
+                                    onmouseout="this.style.color='var(--txt-secondary)'">About Us</a></li>
+                            <li><a href="#"
+                                    style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='var(--neon-cyan)'"
+                                    onmouseout="this.style.color='var(--txt-secondary)'">Privacy Policy</a></li>
+                            <li><a href="#"
+                                    style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='var(--neon-cyan)'"
+                                    onmouseout="this.style.color='var(--txt-secondary)'">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom"
+                    style="border-top: 1px solid var(--border-subtle); padding-top: 24px; text-align: left; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                    <div style="color: var(--txt-muted); font-size: 0.85rem;">
+                        &copy; 2026 Lexi-Fair AI. Built for the Solution Challenge.
+                    </div>
                 </div>
             </div>
         </footer>
@@ -399,10 +459,11 @@
                 <div class="input-group" style="margin-top: 24px;">
                     <label for="target-variable-dropdown">🎯 Target Variable</label>
                     <select id="target-variable-dropdown">
-                        <option value="" disabled selected>Select target variable…</option>
-                        <option value="loan-approval">Loan Approval</option>
-                        <option value="tech-hiring">Tech Hiring</option>
-                        <option value="credit-default">Credit Default Risk</option>
+                        <option value="" disabled selected style="color: #64748b;">Select target variable…</option>
+                        <option value="loan-approval" style="color: #3b82f6; font-weight: 500;">Loan Approval</option>
+                        <option value="tech-hiring" style="color: #f59e0b; font-weight: 500;">Tech Hiring</option>
+                        <option value="credit-default" style="color: #10b981; font-weight: 500;">Credit Default Risk
+                        </option>
                     </select>
                 </div>
 
@@ -489,7 +550,7 @@
                             <h2 class="section-title" style="margin: 0;">Results Dashboard</h2>
                         </div>
                         <div id="results-status" style="font-size: 0.85rem; color: var(--txt-muted);">
-                            <span class="status-dot-sm"></span> 
+                            <span class="status-dot-sm"></span>
                         </div>
                     </div>
 
@@ -566,10 +627,12 @@
                         </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
                         <button id="download-clean-btn" class="btn btn-primary"
                             style="animation: downloadPulse 2.4s infinite;">⬇️ Download Clean CSV</button>
-                        <button id="restart-btn" class="btn btn-outline" style="margin-left: auto;">🔄 Analyze Another Dataset</button>
+                        <button id="restart-btn" class="btn btn-outline" style="margin-left: auto;">🔄 Analyze Another
+                            Dataset</button>
                     </div>
                 </section>
 
