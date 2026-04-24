@@ -141,20 +141,36 @@ Return your analysis STRICTLY matching this JSON schema:
     }}
   ]
 }}
-Do not hallucinate columns that are not in the input array: {schema_headers}
+IMPORTANT: Do not hallucinate columns that are not in the input array: {schema_headers}
+IMPORTANT: Return ONLY valid JSON. Do not include markdown blocks, and DO NOT use trailing commas.
 """
         response = model.generate_content(
             prompt,
             generation_config={"response_mime_type": "application/json"}
         )
-        analysis = json.loads(response.text)
-        print("[INFO] Live Gemini API response received.")
-        return jsonify({
-            "target_variable": target_variable,
-            "schema_headers": schema_headers,
-            "analysis": analysis,
-            "source": "gemini-live"
-        }), 200
+        
+        # Clean up the response text in case it contains Markdown formatting
+        raw_text = response.text.strip()
+        if raw_text.startswith("```json"):
+            raw_text = raw_text[7:]
+        if raw_text.startswith("```"):
+            raw_text = raw_text[3:]
+        if raw_text.endswith("```"):
+            raw_text = raw_text[:-3]
+        raw_text = raw_text.strip()
+        
+        try:
+            analysis = json.loads(raw_text)
+            print("[INFO] Live Gemini API response received.")
+            return jsonify({
+                "target_variable": target_variable,
+                "schema_headers": schema_headers,
+                "analysis": analysis,
+                "source": "gemini-live"
+            }), 200
+        except json.JSONDecodeError as json_err:
+            print(f"[ERROR] Failed to parse JSON. Raw response from Gemini:\n{raw_text}")
+            raise json_err
 
     except Exception as e:
         err_str = str(e)
