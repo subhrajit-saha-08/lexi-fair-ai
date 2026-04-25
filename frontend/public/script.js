@@ -95,7 +95,7 @@ window.scrollTo(0, 0);
    CINEMATIC SLIDER LOGIC
    ═══════════════════════════════════════════════════════ */
 (function () {
-    var SLIDE_DURATION  = 6000; 
+    var SLIDE_DURATION  = 12000; 
     var TRANSITION_TIME = 900;  
     var currentIndex  = 0;
     var totalSlides   = 0;
@@ -156,10 +156,11 @@ window.scrollTo(0, 0);
         });
     });
 
-    root.addEventListener('mouseenter', stopTimer);
-    root.addEventListener('mouseleave', startTimer);
-    root.addEventListener('touchstart', stopTimer, { passive: true });
-    root.addEventListener('touchend',   startTimer, { passive: true });
+    // Hover-to-pause removed to prevent slides from getting stuck when reading
+    // root.addEventListener('mouseenter', stopTimer);
+    // root.addEventListener('mouseleave', startTimer);
+    // root.addEventListener('touchstart', stopTimer, { passive: true });
+    // root.addEventListener('touchend',   startTimer, { passive: true });
     
     root.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); nextSlide(); }
