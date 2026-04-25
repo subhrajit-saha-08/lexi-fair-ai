@@ -622,3 +622,215 @@ background: rgba(255,255,255,0.12); }
     .hero-pagination { bottom: 20px;
  }
 }
+
+/* <!-- UPDATED SECTION START --> */
+/* =========================================================
+   TEAM SECTION UI/UX ENHANCEMENTS
+   ========================================================= */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-card-new {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--r-lg);
+    padding: 40px 24px;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card-new:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 20px rgba(157, 78, 221, 0.15);
+    border-color: rgba(157, 78, 221, 0.3);
+}
+
+.team-card-new::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: var(--grad-primary);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.team-card-new:hover::before {
+    opacity: 1;
+}
+
+.team-photo-wrap {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    padding: 4px;
+    background: var(--border-subtle);
+    transition: background 0.4s ease;
+}
+
+.team-card-new:hover .team-photo-wrap {
+    background: var(--grad-primary);
+}
+
+.team-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--bg-card);
+}
+
+.team-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--txt-primary);
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+}
+
+.team-role {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.team-college {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--txt-muted);
+    margin-bottom: 16px;
+}
+
+.team-desc {
+    font-size: 0.95rem;
+    color: var(--txt-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.team-socials {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.team-social-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--txt-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.team-social-btn:hover {
+    background: var(--neon-blue);
+    color: #fff;
+    border-color: var(--neon-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* =========================================================
+   LEGAL / DOCUMENTATION PAGES UI
+   ========================================================= */
+.doc-container {
+    max-width: 900px;
+    margin: 0 auto 80px auto;
+    padding: 56px;
+    border-radius: 24px;
+    line-height: 1.8;
+}
+
+.doc-section {
+    margin-bottom: 48px;
+}
+
+.doc-section:last-child {
+    margin-bottom: 0;
+}
+
+.doc-heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--txt-primary);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.doc-heading::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 24px;
+    background: var(--neon-cyan);
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.doc-text {
+    font-size: 1.05rem;
+    color: var(--txt-secondary);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.doc-divider {
+    height: 1px;
+    background: var(--border-default);
+    margin: 48px 0;
+    opacity: 0.5;
+}
+
+/* Enhancing About Us Structure */
+.about-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.about-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about-block-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--txt-primary);
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.about-block-title::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: var(--border-subtle);
+    margin-left: 24px;
+}
+/* <!-- UPDATED SECTION END --> */

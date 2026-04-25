@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Lexi-Fair AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="global-particle-canvas"></canvas>
+    <svg class="global-flow-lines" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <linearGradient id="nl-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0" />
+                <stop offset="50%" stop-color="#9d4edd" stop-opacity="0.8" />
+                <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="nl-grad-2" x1="100%" y1="0%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0" />
+                <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#9d4edd" stop-opacity="0" />
+            </linearGradient>
+        </defs>
+        <path class="nl-path nl-path--1" d="M-50,150 Q320,80 640,200 T1330,120" stroke="url(#nl-grad-1)"
+            stroke-width="2" fill="none" />
+        <path class="nl-path nl-path--2" d="M-50,420 Q320,350 640,480 T1330,380" stroke="url(#nl-grad-2)"
+            stroke-width="1.5" fill="none" />
+        <path class="nl-path nl-path--3" d="M1330,300 Q960,200 640,320 T-50,260" stroke="url(#nl-grad-1)"
+            stroke-width="1.5" fill="none" />
+        <circle class="nl-pulse nl-pulse--1" r="4" fill="#9d4edd">
+            <animateMotion dur="10s" repeatCount="indefinite" path="M-50,150 Q320,80 640,200 T1330,120" />
+        </circle>
+        <circle class="nl-pulse nl-pulse--2" r="3" fill="#06b6d4">
+            <animateMotion dur="14s" repeatCount="indefinite" begin="1.5s" path="M-50,420 Q320,350 640,480 T1330,380" />
+        </circle>
+        <circle class="nl-pulse nl-pulse--3" r="3" fill="#ec4899">
+            <animateMotion dur="12s" repeatCount="indefinite" begin="3s" path="M1330,300 Q960,200 640,320 T-50,260" />
+        </circle>
+    </svg>
+
+    <nav id="navbar" class="scrolled">
+        <div class="container nav-inner">
+            <div class="nav-left" style="display: flex; align-items: center; gap: 16px;">
+                <a href="index.html" class="logo">
+                    <div class="logo-img-wrapper">
+                        <img src="Logo lexi.png" alt="Lexi-Fair AI Logo">
+                    </div>
+                    <div class="logo-text-wrapper">
+                        <span class="brand-name">Lexi-Fair</span>
+                        <span class="brand-ai">AI</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html#how-it-works">How it Works</a>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#stats">Impact</a>
+            </div>
+            <a href="index.html" class="btn btn-primary">Start Free Trial</a>
+        </div>
+    </nav>
+
+    <div style="padding-top: 140px; min-height: 80vh; padding-bottom: 80px;" class="container">
+        <div class="section-header reveal active" style="margin-bottom: 48px;">
+            <div class="section-tag">Our Mission</div>
+            <h2>About <span class="text-gradient">Lexi-Fair AI</span></h2>
+            <p class="section-desc">Pioneering ethical AI with deep intersectional audits and real-time auto-mitigation.
+            </p>
+        </div>
+
+        <!-- UPDATED SECTION START -->
+        <div class="glass reveal active about-content-wrapper doc-container" style="margin-bottom: 80px;">
+            <div class="about-block">
+                <h3 class="about-block-title">Project Purpose</h3>
+                <p class="doc-text">
+                    As AI systems become more integrated into high-stakes decisions like hiring, lending, and healthcare,
+                    the risk of hidden biases causing real-world harm grows exponentially. Lexi-Fair AI was built to address
+                    this critical vulnerability. Our purpose is to democratize algorithmic fairness, providing enterprises
+                    with a robust, transparent, and easy-to-use tool to ensure their AI models make 100% fair decisions,
+                    free from historical prejudices.
+                </p>
+            </div>
+
+            <div class="about-block">
+                <h3 class="about-block-title">How It Works</h3>
+                <p class="doc-text">
+                    The platform operates on a streamlined, 4-step workflow designed for zero friction. First, users ingest
+                    their raw datasets securely. Our Neural Engine then performs a deep, intersectional audit, scanning for
+                    both overt and hidden proxy biases. We provide a comprehensive Fairness Score and interactive
+                    visualizations to highlight risk areas. Finally, with one click, our auto-mitigation engine
+                    mathematically sanitizes the dataset, allowing teams to download clean, balanced data ready for
+                    training.
+                </p>
+            </div>
+
+            <div class="about-block">
+                <h3 class="about-block-title">Prototype Overview</h3>
+                <p class="doc-text" style="margin-bottom: 0;">
+                    The current Lexi-Fair prototype showcases the full end-to-end fairness pipeline. It features a stunning,
+                    cinematic frontend built entirely with vanilla web technologies to ensure maximum performance and
+                    security without heavy framework bloat. On the backend, a scalable API drives the complex mathematical
+                    modeling required to detect and quarantine biased columns, demonstrating our core thesis: ethical AI
+                    doesn't have to be complicated.
+                </p>
+            </div>
+        </div>
+        <!-- UPDATED SECTION END -->
+
+        <div class="section-header reveal active" style="margin-bottom: 48px;">
+            <div class="section-tag">The Innovators</div>
+            <h2>About <span class="text-gradient">The Team</span></h2>
+        </div>
+
+        <!-- UPDATED SECTION START -->
+        <div class="team-grid reveal active">
+            <div class="team-card-new">
+                <div class="team-photo-wrap"><img src="mohit.png" alt="Mohit Pandey"></div>
+                <h4 class="team-name">Mohit Pandey</h4>
+                <p class="team-role">Frontend Developer</p>
+                <p class="team-college">JIS College of Engineering</p>
+                <p class="team-desc">Built the entire user interface of LexiFair AI from scratch and Focused on modern UI/UX principles, smooth animations, and scalable frontend architecture for a production-ready platform.</p>
+                <div class="team-socials">
+                    <a href="https://www.linkedin.com/in/mohit-pandey-828a37404" target="_blank" rel="noopener noreferrer" class="team-social-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="https://github.com/mohitpandey827680165-lgtm" target="_blank" rel="noopener noreferrer" class="team-social-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                </div>
+            </div>
+
+            <div class="team-card-new">
+                <div class="team-photo-wrap"><img src="mehul.png" alt="Mehul Kumar"></div>
+                <h4 class="team-name">Mehul Kumar</h4>
+                <p class="team-role">Backend Developer</p>
+                <p class="team-college">JIS College of Engineering</p>
+                <p class="team-desc">Developed the complete backend infrastructure, including APIs, data processing pipelines, and system logic. Ensured high performance, scalability, and secure handling of data across the platform.</p>
+                <div class="team-socials">
+                    <a href="https://www.linkedin.com/in/mehul-kumar-jaiswal-ab0915260" target="_blank" rel="noopener noreferrer" class="team-social-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="#" onclick="event.preventDefault();" class="team-social-btn" style="opacity: 0.5; cursor: not-allowed;"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                </div>
+            </div>
+
+            <div class="team-card-new">
+                <div class="team-photo-wrap"><img src="subhrajit.png" alt="Subhrajit"></div>
+                <h4 class="team-name">Subhrajit Saha</h4>
+                <p class="team-role">Full Stack Developer</p>
+                <p class="team-college">JIS College of Engineering</p>
+                <p class="team-desc">Played a critical role in bridging frontend and backend systems, and Acted as a problem-solver across all stages, ensuring smooth execution, system stability, and team coordination.</p>
+                <div class="team-socials">
+                    <a href="https://www.linkedin.com/in/subhrajit-saha08" target="_blank" rel="noopener noreferrer" class="team-social-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="https://github.com/subhrajit-saha-08" target="_blank" rel="noopener noreferrer" class="team-social-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                </div>
+            </div>
+
+            <div class="team-card-new">
+                <div class="team-photo-wrap"><img src="monidipa.png" alt="Monidipa"></div>
+                <h4 class="team-name">Monidipa Dey</h4>
+                <p class="team-role">Creative Designer</p>
+                <p class="team-college">JIS College of Engineering</p>
+                <p class="team-desc">Handled visual identity including logo design, branding elements, and presentation materials. Contributed to the overall look and feel of the product, ensuring a consistent and professional brand.</p>
+                <div class="team-socials">
+                    <a href="https://www.linkedin.com/in/monidipa-dey-b8217736b" target="_blank" rel="noopener noreferrer" class="team-social-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                    <a href="https://github.com/Bit-byher25" target="_blank" rel="noopener noreferrer" class="team-social-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <!-- UPDATED SECTION END -->
+    </div>
+
+    <!-- The exact same footer from index.html -->
+    <footer class="glass"
+        style="margin-top: 40px; padding: 60px 0 24px 0; border-top: 1px solid var(--glass-border); border-bottom: none; border-left: none; border-right: none; border-radius: 0; background: rgba(2, 4, 10, 0.3);">
+        <div class="container">
+            <div
+                style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 48px; max-width: 1050px; margin-left: auto; margin-right: auto;">
+                <div style="max-width: 350px;">
+                    <div class="logo-text-wrapper" style="margin-bottom: 16px; font-size: 1.2rem;">
+                        <span class="brand-name">Lexi-Fair</span><span class="brand-ai">AI</span>
+                    </div>
+                    <p style="color: var(--txt-secondary); line-height: 1.6; font-size: 0.9rem;">
+                        The enterprise-grade bias detection system. Ensuring 100% fair decisions through
+                        neural auditing and auto-mitigation.
+                    </p>
+                </div>
+                <div>
+                    <h4
+                        style="color: var(--txt-primary); font-size: 1rem; margin-bottom: 20px; font-weight: 600; display: flex; align-items: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-right: 8px; color: var(--txt-muted);">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        Project Resources
+                    </h4>
+                    <ul
+                        style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                        <li><a href="https://github.com/sample-repo" target="_blank"
+                                style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                onmouseover="this.style.color='var(--neon-cyan)'"
+                                onmouseout="this.style.color='var(--txt-secondary)'">GitHub
+                                Repository</a></li>
+                        <li><a href="https://youtube.com/sample-video" target="_blank"
+                                style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                onmouseover="this.style.color='var(--neon-cyan)'"
+                                onmouseout="this.style.color='var(--txt-secondary)'">Video Demo</a></li>
+                        <li><a href="https://pitchdeck.sample/view" target="_blank"
+                                style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                onmouseover="this.style.color='var(--neon-cyan)'"
+                                onmouseout="this.style.color='var(--txt-secondary)'">Pitch Deck</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        style="color: var(--txt-primary); font-size: 1rem; margin-bottom: 20px; font-weight: 600; display: flex; align-items: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-right: 8px; color: var(--txt-muted);">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        Legal & Docs
+                    </h4>
+                    <ul
+                        style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                        <li><a href="about.html"
+                                style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                onmouseover="this.style.color='var(--neon-cyan)'"
+                                onmouseout="this.style.color='var(--txt-secondary)'">About Us</a></li>
+                        <li><a href="privacy.html"
+                                style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                onmouseover="this.style.color='var(--neon-cyan)'"
+                                onmouseout="this.style.color='var(--txt-secondary)'">Privacy Policy</a>
+                        </li>
+                        <li><a href="terms.html"
+                                style="color: var(--txt-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;"
+                                onmouseover="this.style.color='var(--neon-cyan)'"
+                                onmouseout="this.style.color='var(--txt-secondary)'">Terms of
+                                Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"
+                style="border-top: 1px solid var(--border-subtle); padding-top: 24px; text-align: left; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                <div style="color: var(--txt-muted); font-size: 0.85rem;">
+                    &copy; 2026 Lexi-Fair AI. Built for the Solution Challenge.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
