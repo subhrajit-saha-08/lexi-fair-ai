@@ -262,6 +262,14 @@ glowingCards.forEach(card => {
    ───────────────────────────────────────────────────────── */
 'use strict';
 
+// ── SILENT BACKEND WAKE-UP (Pre-warming) ──
+window.addEventListener('DOMContentLoaded', () => {
+    const backendHealthUrl = 'https://lexi-fair-api.onrender.com/health';
+    fetch(backendHealthUrl)
+        .then(response => console.log("AEGIS-AI Core: Online and Pre-warmed"))
+        .catch(error => console.log("AEGIS-AI Core: Waking up from cold state..."));
+});
+
 let selectedFile = null;
 let parsedData = null;
 let parsedHeaders = null;
@@ -453,7 +461,7 @@ Object.entries(TRAP_DATASETS).forEach(([cardId, meta]) => {
 });
 
 /* ── ACTUAL BACKEND API LOGIC (Port 5000) ── */
-const API_URL = 'http://localhost:5000/api/v1/analyze';
+const API_URL = 'https://lexi-fair-api.onrender.com/api/v1/analyze';
 
 async function sendToAPI(dataArray) {
   const targetVariable = targetVariableDropdown ? targetVariableDropdown.value : '';
