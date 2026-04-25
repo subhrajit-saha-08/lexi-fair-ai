@@ -48,7 +48,7 @@ PROXY_KNOWLEDGE = {
                           "en": "Marital status can act as a proxy for gender, as women are historically more impacted by marital status-based discrimination.",
                           "hi": "वैवाहिक स्थिति लिंग के लिए प्रॉक्सी के रूप में कार्य कर सकती है।",
                           "es": "El estado civil puede actuar como indicador de género.",
-                          "fr": "L'état civil peut servir d'indicateur de genre."},
+                          "fr": "L'état civil peut servir d'indicator de genre."},
     "num_dependents":    {"risk_score": 50, "risk_category": "Gender / Family Status Proxy",
                           "en": "Number of dependents can be a proxy for gender and family status, potentially discriminating against women and single parents.",
                           "hi": "आश्रितों की संख्या लिंग और पारिवारिक स्थिति के लिए प्रॉक्सी हो सकती है।",
@@ -187,5 +187,12 @@ IMPORTANT: Return ONLY valid JSON. Do not include markdown blocks, and DO NOT us
     }), 200
 
 
+# ── Health Check Endpoint for Pre-warming ────────────────────────────────
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "active", "message": "LexiFair-AI Core is awake!"}), 200
+
+
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host='0.0.0.0', port=port, debug=False)
