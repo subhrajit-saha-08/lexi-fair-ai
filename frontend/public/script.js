@@ -266,8 +266,8 @@ glowingCards.forEach(card => {
 window.addEventListener('DOMContentLoaded', () => {
     const backendHealthUrl = 'https://lexi-fair-api.onrender.com/health';
     fetch(backendHealthUrl)
-        .then(response => console.log("AEGIS-AI Core: Online and Pre-warmed"))
-        .catch(error => console.log("AEGIS-AI Core: Waking up from cold state..."));
+        .then(response => console.log("LEXI-FAIR-AI Core: Online and Pre-warmed"))
+        .catch(error => console.log("LEXI-FAIR-AI Core: Waking up from cold state..."));
 });
 
 let selectedFile = null;
@@ -1010,7 +1010,7 @@ function setUIScanning() {
         <span style="width:8px;height:8px;border-radius:50%;background:#ef4444;"></span>
         <span style="width:8px;height:8px;border-radius:50%;background:#f59e0b;"></span>
         <span style="width:8px;height:8px;border-radius:50%;background:#10b981;"></span>
-        <span style="font-size:0.7rem;color:rgba(16,185,129,0.4);margin-left:8px;font-weight:600;">AEGIS-AI // ETHICS AUDIT ENGINE v1.0</span>
+        <span style="font-size:0.7rem;color:rgba(16,185,129,0.4);margin-left:8px;font-weight:600;">LEXI-FAIR-AI // ETHICS AUDIT ENGINE v1.0</span>
       </div>
       <div id="terminal-lines" style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;"></div>
       <div style="margin-top: 8px;"><span class="terminal-cursor" style="display: inline-block; width: 9px; height: 1.1em; background-color: #10b981; animation: blink 1s step-end infinite;"></span></div>
