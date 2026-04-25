@@ -145,8 +145,8 @@ window.scrollTo(0, 0);
     }
 
     function nextSlide() { goTo(currentIndex + 1); }
-    function startTimer() { autoTimer = setTimeout(function tick() { nextSlide(); autoTimer = setTimeout(tick, SLIDE_DURATION); }, SLIDE_DURATION); }
-    function stopTimer() { clearTimeout(autoTimer); }
+    function startTimer() { stopTimer(); autoTimer = setInterval(nextSlide, SLIDE_DURATION); }
+    function stopTimer() { clearInterval(autoTimer); }
     function restartTimer() { stopTimer(); startTimer(); }
 
     dots.forEach(function (dot) {
@@ -1069,7 +1069,7 @@ function setUIScanning() {
   runTheatre();
 
   if (resultsSection) {
-    setTimeout(() => resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+    setTimeout(() => resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' }), 450);
   }
 }
 
