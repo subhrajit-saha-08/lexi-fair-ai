@@ -41,29 +41,6 @@ Historical training datasets often contain hidden demographic proxies (e.g., zip
 
 ---
 
-## 🚀 How to Run Locally
-
-If you prefer to run the architecture locally to verify the backend routing:
-
-**1. Clone the repository**
-\`\`\`bash
-git clone https://github.com/subhrajit-saha-08/lexi-fair-ai.git
-cd lexi-fair-ai
-\`\`\`
-
-**2. Set up the Backend (Flask)**
-\`\`\`bash
-cd backend
-pip install -r requirements.txt
-export GEMINI_API_KEY="your_api_key_here"
-python app.py
-\`\`\`
-
-**3. Launch the Frontend**
-Open `index.html` in the `frontend` folder using your browser, or serve it using a local live server. *Ensure your local backend is running on port 5000.*
-
----
-
 ## 🔮 Future Development
 
 We built Lexi-Fair AI to scale into a comprehensive enterprise compliance suite. Our immediate roadmap includes:
