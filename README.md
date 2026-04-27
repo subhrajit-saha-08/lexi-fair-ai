@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="frontend/Logo lexi.png" alt="Lexi-Fair AI Logo" width="100"/>
   <h1>Lexi-Fair AI</h1>
   <p><strong>Ensure 100% Fair Decisions: The enterprise-grade AI bias detection and mitigation system.</strong></p>
   
